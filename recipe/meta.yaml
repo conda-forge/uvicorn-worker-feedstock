@@ -22,7 +22,7 @@ requirements:
   run:
     - python >={{ python_min }}
     - uvicorn-standard >=0.14.0
-# gunicorn is not available for windows
+    # gunicorn is not available for windows
     - gunicorn >=20.1.0
 
 test:
