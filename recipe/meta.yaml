@@ -1,5 +1,5 @@
 {% set name = "uvicorn-worker" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/uvicorn_worker-{{ version }}.tar.gz
-  sha256: 6baeab7b2162ea6b9612cbe149aa670a76090ad65a267ce8e27316ed13c7de7b
+  sha256: 8ee5306070d8f38dce124adce488c3c0b50f20cf0c0222b12c66188da7214493
 
 build:
   noarch: python
@@ -20,10 +20,12 @@ requirements:
     - hatchling
     - pip
   run:
+    - uvicorn >=0.36.0
     - python >={{ python_min }}
     - uvicorn-standard >=0.14.0
     # gunicorn is not available for windows
-    - gunicorn >=20.1.0
+    - gunicorn >=21.0.0
+    # - uvicorn >=0.36.0
 
 test:
   imports:
